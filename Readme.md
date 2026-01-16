@@ -1,16 +1,16 @@
-# 📩 Newsletter Sign-Up Form
+# Newsletter Sign-Up Form
 
 A responsive and user-friendly newsletter subscription form inspired by a provided Figma design. The project focuses on clean UI, smooth UX, and real-time form interaction.
 
 ---
 
-## 📝 Overview
+## Overview
 
 Users can enter their email address, receive immediate validation feedback, and see a clear success message after subscribing. The layout adapts across devices and follows modern design principles.
 
 ---
 
-## ✨ Features
+## Features
 
 ✔ Email input with real-time validation  
 ✔ Error messages for empty or invalid input  
@@ -20,7 +20,7 @@ Users can enter their email address, receive immediate validation feedback, and 
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 
 - **HTML5**
 - **CSS3**
@@ -28,7 +28,7 @@ Users can enter their email address, receive immediate validation feedback, and 
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 Simply open the file:
 
@@ -41,7 +41,7 @@ No installation or setup is required.
 
 ---
 
-## 🎯 Purpose
+## Purpose
 
 This project was built to demonstrate strong UI and UX implementation with attention to detail.  
 It is suitable for:
