@@ -12,11 +12,11 @@ Users can enter their email address, receive immediate validation feedback, and 
 
 ## Features
 
-✔ Email input with real-time validation  
-✔ Error messages for empty or invalid input  
-✔ Success message displayed after submission  
-✔ Responsive layout for mobile and desktop  
-✔ Hover and focus states for interactive elements  
+ Email input with real-time validation  
+ Error messages for empty or invalid input  
+ Success message displayed after submission  
+ Responsive layout for mobile and desktop  
+ Hover and focus states for interactive elements  
 
 ---
 
