@@ -1,0 +1,122 @@
+/* style.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.newsletter-card {
+  display: flex;
+  max-width: 900px;
+  width: 90%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.newsletter-left, .newsletter-right {
+  flex: 1;
+  padding: 40px;
+}
+
+.newsletter-left h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #1B1B3A;
+}
+
+.newsletter-left p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.newsletter-left ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.newsletter-left ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 25px;
+  color: #555;
+}
+
+.newsletter-left ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  margin-bottom: 10px;
+  transition: border 0.3s;
+}
+
+input[type="email"]:focus {
+  border-color: #4a90e2;
+}
+
+.error-message {
+  color: #E74C3C;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background-color: #1B1B3A;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #333366;
+}
+
+.newsletter-right {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF9E5B 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter-right img {
+  max-width: 100%;
+  height: auto;
+}
+
+.success-message {
+  display: none;
+  color: #2ecc71;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .newsletter-card {
+    flex-direction: column;
+  }
+  .newsletter-right {
+    height: 200px;
+  }
+}
