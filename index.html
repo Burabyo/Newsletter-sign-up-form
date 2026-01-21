@@ -25,13 +25,26 @@
         <button type="submit">Subscribe to our monthly newsletter</button>
       </form>
 
-      <div class="success-message" id="success-message">
-        <p>Thank you for subscribing.Great news awaits you, <span id="user-email"></span>!</p>
+      <div class="success-message hidden" id="success-message">
+        <p>Thank you for subscribing. Great news awaits you, <span id="user-email"></span>!</p>
       </div>
     </div>
 
     <div class="newsletter-right">
       <img src="image.png" alt="Illustration">
+    </div>
+  </div>
+
+  <!-- MOVE MODAL OUTSIDE THE CARD -->
+  <div id="popup-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-body">
+        <div class="checkmark">✔</div>
+        <h2>Thanks for subscribing!</h2>
+        <p>A confirmation email has been sent to <span id="modal-email"></span>. Please open it and click the button inside to confirm your subscription.</p>
+        <button id="close-btn">Dismiss message</button>
+      </div>
     </div>
   </div>
 
