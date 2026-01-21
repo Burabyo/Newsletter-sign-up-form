@@ -176,7 +176,7 @@ button:hover {
   color: #FF6B6B;
 }
 
-/* Responsive */
+
 @media(max-width: 768px) {
   .newsletter-card {
     flex-direction: column;

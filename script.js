@@ -8,7 +8,7 @@ const modalEmail = document.getElementById('modal-email');
 const closeBtn = document.querySelector('.close');
 const dismissBtn = document.getElementById('close-btn');
 
-const newsletterCard = document.querySelector('.newsletter-card'); // entire card wrapper
+const newsletterCard = document.querySelector('.newsletter-card'); 
 
 // ===== Form submit =====
 form.addEventListener('submit', function (e) {
@@ -59,7 +59,6 @@ function clearError() {
 
 function closeModal() {
   modal.style.display = 'none';
-  // Show the newsletter card again
   newsletterCard.style.display = 'flex';
 }
 
