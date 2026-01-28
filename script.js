@@ -1,67 +1,115 @@
-// ===== Get DOM elements =====
 const form = document.getElementById('newsletter-form');
 const emailInput = document.getElementById('email');
-const errorMessage = document.getElementById('error-message');
+const emailGroup = document.getElementById('email-group');
+const modal = document.getElementById('modal');
+const confirmEmail = document.getElementById('confirm-email');
+const dismissBtn = document.getElementById('dismiss-btn');
 
-const modal = document.getElementById('popup-modal');
-const modalEmail = document.getElementById('modal-email');
-const closeBtn = document.querySelector('.close');
-const dismissBtn = document.getElementById('close-btn');
+function isValidEmail(email) {
 
-const newsletterCard = document.querySelector('.newsletter-card'); 
+    if (!email.includes('@')) {
+        return false;
+    }
 
-// ===== Form submit =====
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const emailValue = emailInput.value.trim();
+    const parts = email.split('@');
 
-  if (emailValue === '') {
-    showError('Email address is required');
-    return;
-  }
+    if (parts.length !== 2) {
+        return false;
+    }
 
-  if (!validateEmail(emailValue)) {
-    showError('Please enter a valid email address');
-    return;
-  }
+    const localPart = parts[0];
+    const domainPart = parts[1];
 
-  clearError();
-  modalEmail.textContent = emailValue;
+    if (localPart.length < 1) {
+        return false;
+    }
 
-  // Hide the newsletter card and show modal
-  newsletterCard.style.display = 'none';
-  modal.style.display = 'flex';
+    const validLocalChars = /^[a-zA-Z0-9._-]+$/;
+    if (!validLocalChars.test(localPart)) {
+        return false;
+    }
 
-  form.reset();
+    if (localPart.startsWith('.') || localPart.endsWith('.')) {
+        return false;
+    }
+
+    if (!domainPart.includes('.')) {
+        return false;
+    }
+
+    const domainParts = domainPart.split('.');
+
+    if (domainParts.length < 2) {
+        return false;
+    }
+
+    const validDomainChars = /^[a-zA-Z0-9-]+$/;
+    for (let i = 0; i < domainParts.length; i++) {
+        if (!validDomainChars.test(domainParts[i])) {
+            return false;
+        }
+    }
+
+    const domain = domainParts[0];
+    const extension = domainParts[domainParts.length - 1];
+
+    if (domain.length < 2) {
+        return false;
+    }
+
+    if (extension.length < 2) {
+        return false;
+    }
+
+    const lettersOnly = /^[a-zA-Z]+$/;
+    if (!lettersOnly.test(extension)) {
+        return false;
+    }
+
+    return true;
+}
+
+function showError() {
+    emailGroup.classList.add('error');
+}
+
+function hideError() {
+    emailGroup.classList.remove('error');
+}
+
+function showModal(email) {
+    confirmEmail.textContent = email;
+    modal.classList.add('active');
+}
+
+function hideModal() {
+    modal.classList.remove('active');
+}
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const email = emailInput.value.trim();
+
+    if (email === '') {
+        showError();
+        return;
+    }
+
+    if (!isValidEmail(email)) {
+        showError();
+        return;
+    }
+
+    hideError();
+    showModal(email);
 });
 
-// ===== Clear error while typing =====
-emailInput.addEventListener('input', clearError);
-
-// ===== Close modal =====
-closeBtn.addEventListener('click', closeModal);
-dismissBtn.addEventListener('click', closeModal);
-
-window.addEventListener('click', function (e) {
-  if (e.target === modal) closeModal();
+emailInput.addEventListener('input', function() {
+    hideError();
 });
 
-// ===== Helpers =====
-function showError(message) {
-  errorMessage.textContent = message;
-  emailInput.style.borderColor = '#E74C3C';
-}
-
-function clearError() {
-  errorMessage.textContent = '';
-  emailInput.style.borderColor = '#ccc';
-}
-
-function closeModal() {
-  modal.style.display = 'none';
-  newsletterCard.style.display = 'flex';
-}
-
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+dismissBtn.addEventListener('click', function() {
+    hideModal();
+    form.reset();
+});

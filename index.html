@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newsletter Signup</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Newsletter Signup</title>
 </head>
 <body>
-  <div class="newsletter-card">
-    <div class="newsletter-left">
-      <h2>Stay updated with BJ GROUP!</h2>
-      <p>Join 60,000+ product managers receiving monthly updates on:</p>
-      <ul>
-        <li>Product discovery and building what matters</li>
-        <li>Measuring to ensure updates are a success</li>
-        <li>And much more!</li>
-      </ul>
-
-      <form id="newsletter-form" novalidate>
-        <div class="form-group">
-          <input type="email" id="email" placeholder="Email address" required>
-          <span class="error-message" id="error-message"></span>
+    <div class="card">
+        <div class="content">
+            <h1>Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <ul class="features">
+                <li>
+                    <img src="assets/icon-list.svg" alt="check" class="check-icon">
+                    Product discovery and building what matters
+                </li>
+                <li>
+                    <img src="assets/icon-list.svg" alt="check" class="check-icon">
+                    Measuring to ensure updates are a success
+                </li>
+                <li>
+                    <img src="assets/icon-list.svg" alt="check" class="check-icon">
+                    And much more!
+                </li>
+            </ul>
+            <form id="newsletter-form">
+                <div class="form-group" id="email-group">
+                    <div class="label-row">
+                        <label for="email">Email address</label>
+                        <span class="error-message">Valid email required</span>
+                    </div>
+                    <input type="text" name="email" id="email" class="email-input" placeholder="email@company.com">
+                </div>
+                <button type="submit" class="submit-btn">Subscribe to monthly newsletter</button>
+            </form>
         </div>
-        <button type="submit">Subscribe to our monthly newsletter</button>
-      </form>
-
-      <div class="success-message hidden" id="success-message">
-        <p>Thank you for subscribing. Great news awaits you, <span id="user-email"></span>!</p>
-      </div>
+        <div class="illustration">
+            <img src="assets/illustration-sign-up-desktop.svg" alt="illustration" class="illustration-desktop">
+            <img src="assets/illustration-sign-up-mobile.svg" alt="illustration" class="illustration-mobile">
+        </div>
     </div>
 
-    <div class="newsletter-right">
-      <img src="image.png" alt="Illustration">
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <img src="assets/icon-success.svg" alt="success" class="success-icon">
+            <h2>Thanks for subscribing!</h2>
+            <p>A confirmation email has been sent to <strong id="confirm-email">ash@loremcompany.com</strong>. Please open it and click the button inside to confirm your subscription.</p>
+            <button class="dismiss-btn" id="dismiss-btn">Dismiss message</button>
+        </div>
     </div>
-  </div>
 
-  <!-- MOVE MODAL OUTSIDE THE CARD -->
-  <div id="popup-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class="modal-body">
-        <div class="checkmark">✔</div>
-        <h2>Thanks for subscribing!</h2>
-        <p>A confirmation email has been sent to <span id="modal-email"></span>. Please open it and click the button inside to confirm your subscription.</p>
-        <button id="close-btn">Dismiss message</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
